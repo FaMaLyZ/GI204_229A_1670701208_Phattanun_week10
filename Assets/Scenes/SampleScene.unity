@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 7416536dbe0334cfd888dd1beb75a9fb, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 51b74d7bad397457d883c5940f7664d8, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 853287767}
   - component: {fileID: 853287766}
   - component: {fileID: 853287765}
+  - component: {fileID: 853287768}
   m_Layer: 0
   m_Name: AirPlaneRoot
   m_TagString: Untagged
@@ -300,6 +301,28 @@ Transform:
   - {fileID: 881900986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853287768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853287764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4be0741d69aae041bfc864c7a2206ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AirPlaneController
+  thrust: 40
+  liftCoefficient: 0.02
+  dragCoefficient: 0.02
+  sideDrag: 2
+  turnStrength: 0.5
+  stallAngle: 35
+  stallLiftMultiplier: 0.3
+  pitchPower: 15
+  rollPower: 20
+  yawPower: 15
 --- !u!1 &881900985
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,8 +351,8 @@ Transform:
   m_GameObject: {fileID: 881900985}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.42, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: -0.012737}
+  m_LocalScale: {x: 1, y: 1.5995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2130715438}
@@ -427,6 +450,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -502,12 +526,27 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.09, z: -10}
+  m_LocalPosition: {x: 0, y: 1.62, z: -8.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8bebd2ee8947f40aacf6970f98178f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  target: {fileID: 853287767}
+  offset: {x: 0, y: 3, z: -8}
+  smoothSpeed: 5
 --- !u!1 &1657103503
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,8 +574,8 @@ Transform:
   m_GameObject: {fileID: 1657103503}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.006, y: 0.07, z: -0.16}
-  m_LocalScale: {x: 2.3898, y: 0.07371899, z: 0.4973699}
+  m_LocalPosition: {x: -0.006, y: 0.185, z: -0.16}
+  m_LocalScale: {x: 3.5565004, y: 0.07371899, z: 0.37837413}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 881900986}
